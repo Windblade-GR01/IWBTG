@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>global.SaveLoad = 0
 global.SFX = audio_emitter_create()
-global.BGM = audio_emitter_create()
+//global.BGM = audio_emitter_create()
 alarm[0] = 5
 
 if Save_Check()
