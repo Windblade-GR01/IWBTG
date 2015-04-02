@@ -3,7 +3,129 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="9" name="datafiles"/>
+  <datafiles number="16" name="datafiles">
+    <datafile>
+      <name>GMFMODSimple.dll</name>
+      <exists>-1</exists>
+      <size>83968</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>GMFMODSimple.dll</filename>
+    </datafile>
+    <datafiles number="16" name="BGM">
+      <datafile>
+        <name>Bgm_RM6_Boss.mp3</name>
+        <exists>-1</exists>
+        <size>4043021</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>Bgm_RM6_Boss.mp3</filename>
+      </datafile>
+      <datafile>
+        <name>Bgm_Tile.mp3</name>
+        <exists>-1</exists>
+        <size>6412166</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>Bgm_Tile.mp3</filename>
+      </datafile>
+      <datafile>
+        <name>Bgm_Tomahawkman.mp3</name>
+        <exists>-1</exists>
+        <size>5555035</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>Bgm_Tomahawkman.mp3</filename>
+      </datafile>
+      <datafile>
+        <name>Bgm_W1.ogg</name>
+        <exists>-1</exists>
+        <size>1355124</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>Bgm_W1.ogg</filename>
+      </datafile>
+      <datafile>
+        <name>Bgm_Gaurdian.WAV</name>
+        <exists>-1</exists>
+        <size>3850804</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>Bgm_Gaurdian.WAV</filename>
+      </datafile>
+    </datafiles>
+    <datafile>
+      <name>fmodex.dll</name>
+      <exists>-1</exists>
+      <size>1263616</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>fmodex.dll</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions>
     <extension index="0">extensions\Easy Lighting Studio</extension>
     <extension index="1">extensions\GMFileSystem</extension>
@@ -18,11 +140,6 @@
     <sound>sound\Snd_Death</sound>
     <sound>sound\Snd_MJump</sound>
     <sound>sound\Snd_Hammer</sound>
-    <sound>sound\Bgm_Tile</sound>
-    <sound>sound\Bgm_Tomahawkman</sound>
-    <sound>sound\Bgm_Gaurdian</sound>
-    <sound>sound\Bgm_RM6_Boss</sound>
-    <sound>sound\Bgm_W1</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Kid">
@@ -183,7 +300,9 @@
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <script>scripts\StartSoundSystem.gml</script>
     <script>scripts\Bgm_Play.gml</script>
+    <script>scripts\Bgm_Play_old.gml</script>
     <script>scripts\Save_End.gml</script>
     <script>scripts\Save_Reload.gml</script>
     <script>scripts\Save_Check.gml</script>

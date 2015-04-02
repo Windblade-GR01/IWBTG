@@ -5,5 +5,5 @@ global.RoomDown = -1
 global.RoomLeft = -1
 global.RoomRight = -1
 global.Night = 0
-Bgm_Play(Bgm_Tile)
+Bgm_Play(global.VBgm_Tile)
 }

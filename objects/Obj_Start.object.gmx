@@ -34,7 +34,8 @@ if Save_Check()
 {Save_End()
 Save_Load()}
 else
-{global.Played_BGM = -1
+{StartSoundSystem()
+global.Played_BGM = -1
 room_goto_next()}
 </string>
           </argument>
