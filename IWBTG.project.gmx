@@ -464,6 +464,7 @@
   <rooms name="rooms">
     <room>rooms\RM_Main</room>
     <room>rooms\RM_Tile</room>
+    <room>rooms\RM_Base</room>
     <rooms name="Level 1">
       <room>rooms\Level_1a1</room>
       <room>rooms\Level_1a2</room>

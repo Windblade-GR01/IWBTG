@@ -3,7 +3,7 @@
   <name>GMFileSystem</name>
   <version>1.4.4</version>
   <packageID></packageID>
-  <author></author>
+  <ProductID></ProductID>
   <date>15/01/13</date>
   <license>Copyright (c) 2013, Paul Weijtens
 All rights reserved.
@@ -54,11 +54,13 @@ Filesystem improvements</description>
       <init></init>
       <final></final>
       <kind>1</kind>
+      <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
+      <ProxyFiles/>
       <functions>
         <function>
           <name>FS_directory_create</name>
@@ -732,22 +734,27 @@ Filesystem improvements</description>
         <constant>
           <name>ENC_UTF8</name>
           <value>0</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>ENC_UTF16_LE</name>
           <value>1</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>ENC_UTF16_BE</name>
           <value>0</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>ENC_UTF32_LE</name>
           <value>0</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>ENC_UTF32_BE</name>
           <value>0</value>
+          <hidden>0</hidden>
         </constant>
       </constants>
     </file>
@@ -757,11 +764,13 @@ Filesystem improvements</description>
       <init></init>
       <final>FS_clean_temporary</final>
       <kind>1</kind>
+      <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
+      <ProxyFiles/>
       <functions>
         <function>
           <name>FS_set_working_directory</name>
@@ -886,11 +895,13 @@ Filesystem improvements</description>
       <init>FS_gmfilesystem_initialize_detail</init>
       <final></final>
       <kind>2</kind>
+      <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
+      <ProxyFiles/>
       <functions>
         <function>
           <name>FS_background_add</name>
@@ -1342,11 +1353,13 @@ Filesystem improvements</description>
       <init></init>
       <final></final>
       <kind>1</kind>
+      <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
+      <ProxyFiles/>
       <functions>
         <function>
           <name>FS_ini_close</name>
@@ -1603,11 +1616,13 @@ Filesystem improvements</description>
       <init></init>
       <final></final>
       <kind>1</kind>
+      <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
           <CopyToMask>9223372036854775807</CopyToMask>
         </Config>
       </ConfigOptions>
+      <ProxyFiles/>
       <functions>
         <function>
           <name>FS_xml_attribute_first</name>
@@ -2188,34 +2203,42 @@ Filesystem improvements</description>
         <constant>
           <name>FS_XML_UNKNOWN</name>
           <value>0</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>FS_XML_TEXT</name>
           <value>1</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>FS_XML_ELEMENT</name>
           <value>2</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>FS_XML_DOCUMENT</name>
           <value>3</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>FS_XML_DECLARATION</name>
           <value>4</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>FS_XML_COMMENT</name>
           <value>5</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>FS_XML_PRESERVE_WHITESPACE</name>
           <value>0</value>
+          <hidden>0</hidden>
         </constant>
         <constant>
           <name>FS_XML_COLLAPSE_WHITESPACE</name>
           <value>1</value>
+          <hidden>0</hidden>
         </constant>
       </constants>
     </file>
