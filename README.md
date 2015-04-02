@@ -1,3 +1,3 @@
 # IWBTG
-This is another IWBTG fangame that i am making,
+This is another IWBTG fangame,
 is made in game maker studio.
