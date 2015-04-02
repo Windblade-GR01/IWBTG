@@ -54,7 +54,7 @@
   <instances>
     <instance objName="Obj_Spike_Up" x="256" y="512" name="inst_9418D97D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Spike_Down" x="320" y="480" name="inst_48EE21C8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Spike_Up" x="384" y="480" name="inst_2CA3DCEF" locked="0" code="TrapVSpeed = 4" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Obj_Spike_Up" x="384" y="480" name="inst_2CA3DCEF" locked="0" code="TrapVSpeed = 4&#xA;NormalMove = 0&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Spike_Up" x="192" y="512" name="inst_B666E86D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Spike_Up" x="96" y="512" name="inst_DAAD7E38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Spike_Up" x="128" y="512" name="inst_A0B90334" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
