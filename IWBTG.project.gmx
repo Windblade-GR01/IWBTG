@@ -216,7 +216,9 @@
     </sprites>
     <sprites name="System">
       <sprite>sprites\Spr_Falling_Sys</sprite>
+      <sprite>sprites\Spr_Falling_Light</sprite>
       <sprite>sprites\Spr_Rising_Sys</sprite>
+      <sprite>sprites\Spr_Rising_Light</sprite>
       <sprite>sprites\Spr_Parent</sprite>
       <sprite>sprites\Spr_Sys</sprite>
       <sprite>sprites\Spr_Boot</sprite>
@@ -523,8 +525,11 @@
       <object>objects\Obj_Shoot_Barrier</object>
       <object>objects\Obj_Light_Barrier_32</object>
       <object>objects\Obj_Light_Barrier</object>
+      <object>objects\object58</object>
       <object>objects\Obj_Rising_Block</object>
       <object>objects\Obj_Falling_Block</object>
+      <object>objects\Obj_Rising_Light</object>
+      <object>objects\Obj_Falling_Light</object>
       <object>objects\Obj_Spike_Up</object>
       <object>objects\Obj_Spike_Down</object>
       <object>objects\Obj_Spike_Left</object>

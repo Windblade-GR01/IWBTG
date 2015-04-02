@@ -57,6 +57,7 @@
 VSpeed = 0
 Fall = 0
 Up = 0
+ShadowOn = 0
 </string>
           </argument>
         </arguments>

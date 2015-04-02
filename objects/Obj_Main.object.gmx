@@ -117,6 +117,8 @@ surface_resize(application_surface,view_wview,view_hview)
           <argument>
             <kind>1</kind>
             <string>FMODUpdate()
+global.GuiX = (window_get_width()/2)-((view_wview)/2)
+global.GuiY = (window_get_height()/2)-((view_hview)/2)
 </string>
           </argument>
         </arguments>
