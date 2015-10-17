@@ -25,9 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// IntPosVar
+            <string>//Get Name
+SelfName = object_get_name(object_index)
+
+// IntPosVar
 PosX = x
 PosY = y
+Box = 0
 //PosX = x
 //PosY = y
 /*
@@ -42,28 +46,42 @@ Gravity = 0.25
 MinFallSpeed = 1
 MaxFallSpeed = 12
 */
-Acelerarion = 1//1,25
-WalkSpeed = 3//2,75
+
+Killed = 0
+Acelerarion = 0.375//1.25
+Decelerarion = 0.25//0.25
+WalkSpeed = 2.75
 JumpSpeed = 8.55
 DJumpSpeed = 7.25
 Gravity = 0.4
 MinFallSpeed = 1
-MaxFallSpeed = 8//12
-
+MaxFallSpeed = 12
+//125
 HSpeed = 0
 VSpeed = 0
 DJump = 1
 image_speed = Frame_Speed(10)
 
 //Int Controls Vars
-Key_Left = vk_left
+if SelfName = "Obj_Kid"
+{Key_Left = vk_left
 Key_Right = vk_right
 Key_Jump = ord('Z')
 Key_Shoot = ord('X')
 Key_Up = vk_up
 Key_Down = vk_down
 Key_Change = ord('S')
-Key_Trans = ord('A')
+Key_Trans = vk_numpad6}
+
+if SelfName = "Obj_Kid_P2"
+{Key_Left = ord('J')
+Key_Right = ord('L')
+Key_Jump = ord('Z')
+Key_Shoot = ord('X')
+Key_Up = ord('I')
+Key_Down = ord('K')
+Key_Change = ord('S')
+Key_Trans = ord('A')}
 
 Hold_Left = 0
 Hold_Right = 0
@@ -83,8 +101,13 @@ OnFloor = 0
 OnSolid = 0
 EXT_PosY = 0
 
-if 1instance_exists(Obj_Gun)
-{instance_create(x,y,Obj_Gun)}
+if SelfName = "Obj_Kid"
+{if !instance_exists(Obj_Gun)
+{instance_create(x,y,Obj_Gun)}}
+
+if SelfName = "Obj_Kid_P2"
+{if !instance_exists(Obj_Gun_P2)
+{instance_create(x,y,Obj_Gun_P2)}}
 </string>
           </argument>
         </arguments>
@@ -109,7 +132,7 @@ if 1instance_exists(Obj_Gun)
             <kind>1</kind>
             <string>//instance_create(x,y,Obj_Player_Dead)
 if global.SaveLoad = 0
-{effect_create_above(ef_firework,x,y-5,1,c_red)
+{effect_create_above(ef_firework,round(PosX+HSpeed),round(PosY+VSpeed)-5,1,c_red)
 audio_play_sound_on(global.SFX,Snd_Death,false,1)}
 </string>
           </argument>
@@ -141,7 +164,8 @@ if global.Direction = "Up"
 {PosY = room_height}
 if global.Direction = "Down"
 {PosY = 0}
-global.Warp = 0
+global.Light = 1
+global.Direction = "None"
 </string>
           </argument>
         </arguments>
@@ -177,7 +201,8 @@ if EXT_PosY &lt; 0
 y = round(PosY)
 EXT_PosY  = 0
 
-ls_light_set_pos(Light,x,y)
+if global.Light = 1
+{ls_light_set_pos(Light,x,y)}
 </string>
           </argument>
         </arguments>
@@ -202,6 +227,10 @@ ls_light_set_pos(Light,x,y)
             <kind>1</kind>
             <string>x = round(PosX)
 y = round(PosY)
+CLeft=bbox_left-x
+CRight=bbox_right-x
+CTop=bbox_top-y
+CBottom=bbox_bottom-y
 </string>
           </argument>
         </arguments>
@@ -224,100 +253,64 @@ y = round(PosY)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Kill Code
-if (place_meeting(PosX,PosY,Obj_Solid))
-{instance_destroy()}
-
-if (place_meeting(PosX+HSpeed,PosY,Obj_Spike_Up_Parent))
-|| (place_meeting(PosX,PosY+VSpeed,Obj_Spike_Up_Parent) &amp;&amp; VSpeed &gt; 0 &amp;&amp; !place_meeting(PosX,PosY+VSpeed,Obj_Sub_Block))
-{instance_destroy()}
-
-if (place_meeting(PosX+HSpeed,PosY,Obj_Spike_Down_Parent)) ||
-(place_meeting(PosX,PosY+VSpeed,Obj_Spike_Down_Parent) &amp;&amp; VSpeed &lt; 0 &amp;&amp; !place_meeting(PosX,PosY+VSpeed,Obj_Block_Parent))
-{instance_destroy()}
-
-if (place_meeting(PosX+HSpeed,PosY,Obj_Spike_Left_Parent) &amp;&amp; HSpeed &gt; 0 &amp;&amp; !place_meeting(PosX+HSpeed,PosY,Obj_Sub_Block)) ||
-(place_meeting(PosX,PosY+VSpeed,Obj_Spike_Left_Parent))
-{instance_destroy()}
-
-if (place_meeting(PosX+HSpeed,PosY,Obj_Spike_Right_Parent) &amp;&amp; HSpeed &lt; 0 &amp;&amp; !place_meeting(PosX+HSpeed,PosY,Obj_Sub_Block)) ||
-(place_meeting(PosX,PosY+VSpeed,Obj_Spike_Right_Parent))
-{instance_destroy()}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>//Imput Vars
-if global.Warp = 0
-{
-Hold_Left = keyboard_check(Key_Left)
-Hold_Right = keyboard_check(Key_Right)
-Hold_Jump = keyboard_check(Key_Jump)
-Hold_Shoot = keyboard_check_pressed(Key_Shoot)
-}
-
-if global.Warp = 0
-{
-Press_Jump = keyboard_check_pressed(Key_Jump)
-Press_Shoot = keyboard_check_pressed(Key_Shoot)
-Press_Up = keyboard_check_pressed(Key_Up)
-Press_Change = keyboard_check_pressed(Key_Change)
-Press_Trans = keyboard_check_pressed(Key_Trans)
-}
-else
-{
+if global.Warp = 1
+{image_speed = 0
 Press_Jump = 0
 Press_Shoot = 0
 Press_Up = 0
 Press_Change = 0
 Press_Trans = 0
 }
+else
+{
+Hold_Left = keyboard_check(Key_Left)
+Hold_Right = keyboard_check(Key_Right)
+Hold_Jump = keyboard_check(Key_Jump)
+Hold_Shoot = keyboard_check_pressed(Key_Shoot)
+
+Press_Jump = keyboard_check_pressed(Key_Jump)
+Press_Shoot = keyboard_check_pressed(Key_Shoot)
+Press_Up = keyboard_check_pressed(Key_Up)
+Press_Change = keyboard_check_pressed(Key_Change)
+Press_Trans = keyboard_check_pressed(Key_Trans)
 
 //Walk
 MoveDirection = -Hold_Left + Hold_Right
 if MoveDirection = -1
- {if HSpeed &gt; -WalkSpeed
-  HSpeed -= Acelerarion
- }
+{if HSpeed &gt; -WalkSpeed
+ {if HSpeed-Acelerarion &gt; -WalkSpeed
+  {HSpeed -= Acelerarion}
+ else
+  {HSpeed = -WalkSpeed}}
+}
 
 if MoveDirection = 1
- {if HSpeed &lt; WalkSpeed
-  HSpeed += Acelerarion
- }
+{if HSpeed &lt; WalkSpeed
+ {if HSpeed+Acelerarion &lt; WalkSpeed
+  {HSpeed += Acelerarion}
+ else
+  {HSpeed = WalkSpeed}}
+}
+
 
 if MoveDirection = 0
 {if HSpeed &lt; 0
-  {if HSpeed &gt; -Acelerarion
-   {HSpeed += Acelerarion}
+  {if HSpeed &lt; -Decelerarion
+   {HSpeed += Decelerarion}
   else
    {HSpeed = 0}}
  if HSpeed &gt; 0
-  {if HSpeed &lt; Acelerarion
-   {HSpeed -= Acelerarion}
+  {if HSpeed &gt; Decelerarion
+   {HSpeed -= Decelerarion}
   else
    {HSpeed = 0}}
 }
 
 //Gravity = 0.25
 //Jump
-if (place_meeting(PosX,PosY+1,Obj_Sub_Block))
-|| (place_meeting(PosX,PosY+1,Obj_Platform) &amp;&amp; VSpeed &gt;= 0 &amp;&amp; !place_meeting(PosX,PosY,Obj_Platform))
+if (place_meeting(PosX,PosY+1,Obj_Sub_Block)) 
+|| (collision_rectangle(PosX-5,PosY+8,PosX+5,PosY+8,Obj_Platform,true,false) &amp;&amp; VSpeed &gt;= 0)
 {OnFloor = 1
 if DJump &lt; 1
 {DJump = 1}}
@@ -325,7 +318,7 @@ else
 {OnFloor = 0}
 
 if (place_meeting(PosX,PosY+VSpeed+1,Obj_Block_Parent))
-|| (place_meeting(PosX,PosY+VSpeed+1,Obj_Platform) &amp;&amp; VSpeed &gt;= 0 &amp;&amp; !place_meeting(PosX,PosY,Obj_Platform))
+|| (collision_rectangle(PosX-4,PosY+8,PosX+4,PosY+8,Obj_Platform,true,false) &amp;&amp; VSpeed &gt;= 0)
 {OnSolid = 1}
 else
 {OnSolid = 0}
@@ -356,15 +349,47 @@ VSpeed += Gravity
 if MoveDirection != 0
 {Facing = MoveDirection}
 
-/// Collision Code
+/// Kill Code
+if (place_meeting(PosX,PosY,Obj_Solid))
+{instance_destroy()
+Killed = 1}
 
+if (place_meeting(PosX+HSpeed,PosY,Obj_Spike_Up_Parent))
+|| (place_meeting(PosX,PosY+VSpeed,Obj_Spike_Up_Parent) &amp;&amp; VSpeed &gt; 0 &amp;&amp; !place_meeting(PosX,PosY+VSpeed,Obj_Sub_Block))
+{instance_destroy()
+Killed = 1}
+
+if (place_meeting(PosX+HSpeed,PosY,Obj_Spike_Down_Parent)) ||
+(place_meeting(PosX,PosY+VSpeed,Obj_Spike_Down_Parent) &amp;&amp; VSpeed &lt; 0 &amp;&amp; !place_meeting(PosX,PosY+VSpeed,Obj_Block_Parent))
+{instance_destroy()
+Killed = 1}
+
+if (place_meeting(PosX+HSpeed,PosY,Obj_Spike_Left_Parent) &amp;&amp; HSpeed &gt; 0 &amp;&amp; !place_meeting(PosX+HSpeed,PosY,Obj_Sub_Block)) ||
+(place_meeting(PosX,PosY+VSpeed,Obj_Spike_Left_Parent))
+{instance_destroy()
+Killed = 1}
+
+if (place_meeting(PosX+HSpeed,PosY,Obj_Spike_Right_Parent) &amp;&amp; HSpeed &lt; 0 &amp;&amp; !place_meeting(PosX+HSpeed,PosY,Obj_Sub_Block)) ||
+(place_meeting(PosX,PosY+VSpeed,Obj_Spike_Right_Parent))
+{instance_destroy()
+Killed = 1}
+
+/// Collision Code
+if Killed = 0{
 //Horizontal Collision
 if (place_meeting(PosX+HSpeed,PosY,Obj_Solid))
 {
-    //while(!place_meeting(PosX+sign(HSpeed),PosY,Obj_Solid))
-    //{
-    //    PosX += sign(HSpeed);
-    //}
+    if HSpeed != 0
+    {if HSpeed &gt; 0
+     {PosX = floor(PosX)}
+    else
+     {PosX = ceil(PosX)}
+    }
+    
+    while(!place_meeting(PosX+sign(HSpeed),PosY,Obj_Solid))
+    {
+        PosX += sign(HSpeed)
+    }
     HSpeed = 0;
 }
 
@@ -374,25 +399,46 @@ x = round(PosX)
 //Vertical Collision
 if (place_meeting(PosX,PosY+VSpeed,Obj_Solid))
 {
+
+    if VSpeed != 0
+    {if VSpeed &gt; 0
+     {PosY = floor(PosY)}
+    else
+     {PosY = ceil(PosY)}
+    }
+
     while(!place_meeting(PosX,PosY+sign(VSpeed),Obj_Solid))
     {
-        PosY += sign(VSpeed);
+        PosY += sign(VSpeed)
     }
     VSpeed = 0;
 }
+
 else
 {
-if (place_meeting(PosX,PosY+VSpeed+1,Obj_Platform)) &amp;&amp; VSpeed &gt;= 0 &amp;&amp; !place_meeting(PosX,PosY,Obj_Platform)
+CPlatform = collision_rectangle(PosX-4,PosY+8,PosX+4,PosY+8+VSpeed,Obj_Platform,true,false)
+if (CPlatform != noone) &amp;&amp; (VSpeed &gt;= 0)
 {
+
+    if VSpeed != 0
+    {if VSpeed &gt; 0
+     {PosY = floor(PosY)}
+    else
+     {PosY = ceil(PosY)}
+    }
+
     while(!place_meeting(PosX,PosY+sign(VSpeed),Obj_Platform))
     {
-        PosY += sign(VSpeed);
+        PosY += sign(VSpeed)
     }
-    VSpeed = 0;
-}}
+    VSpeed = 0
+}
+}
 
 PosY += VSpeed
 y = round(PosY)
+}
+}
 </string>
           </argument>
         </arguments>
@@ -440,12 +486,12 @@ if !OnFloor &amp;&amp; VSpeed &gt;= 0
 
 if Facing = -1
 {
-if OnFloor &amp;&amp; HSpeed = 0
+if OnFloor &amp;&amp; MoveDirection = 0
  {sprite_index = Spr_Kid_Stand_L
  image_speed = Frame_Speed(10)
  Sprite = "Stand"}
 
-if OnFloor &amp;&amp; HSpeed != 0
+if OnFloor &amp;&amp; MoveDirection != 0
  {sprite_index = Spr_Kid_Walk_L
  image_speed = Frame_Speed(45)
  Sprite = "Walk"}
@@ -465,12 +511,12 @@ if !OnFloor &amp;&amp; VSpeed &gt;= 0
 if global.Player = "Dry"
 {if Facing = 1
 {
-if OnFloor &amp;&amp; HSpeed = 0
+if OnFloor &amp;&amp; MoveDirection = 0
  {sprite_index = Spr_Dry_Stand_R
  image_speed = Frame_Speed(7.5)
  Sprite = "Stand"}
 
-if OnFloor &amp;&amp; HSpeed != 0
+if OnFloor &amp;&amp; MoveDirection != 0
  {sprite_index = Spr_Dry_Walk_R
  image_speed = Frame_Speed(15)
  Sprite = "Walk"}
@@ -488,12 +534,12 @@ if !OnFloor &amp;&amp; VSpeed &gt;= 0
 
 if Facing = -1
 {
-if OnFloor &amp;&amp; HSpeed = 0
+if OnFloor &amp;&amp; MoveDirection = 0
  {sprite_index = Spr_Dry_Stand_L
  image_speed = Frame_Speed(7.5)
  Sprite = "Stand"}
 
-if OnFloor &amp;&amp; HSpeed != 0
+if OnFloor &amp;&amp; MoveDirection != 0
  {sprite_index = Spr_Dry_Walk_L
  image_speed = Frame_Speed(15)
  Sprite = "Walk"}
@@ -558,9 +604,19 @@ if PosY &gt; room_height
 global.Direction = "Down"}}
 
 if global.GoToRoom != -1
-{room_goto(global.GoToRoom)
-alarm[0] = 1
-Change_Room_Delete()}
+{//room_goto(global.GoToRoom)
+Change_Room_Delete()
+
+if global.Direction = "Left"
+{room_goto_transition(global.GoToRoom,7,30,c_black,0)}
+if global.Direction = "Right"
+{room_goto_transition(global.GoToRoom,6,30,c_black,0)}
+if global.Direction = "Up"
+{room_goto_transition(global.GoToRoom,9,30,c_black,0)}
+if global.Direction = "Down"
+{room_goto_transition(global.GoToRoom,8,30,c_black,0)}
+
+alarm[0] = 1}
 else
 {instance_destroy()}}
 </string>
@@ -665,7 +721,58 @@ Gun = "Bazooka"
 PosY = global.SPosY
 Facing = global.SFacing
 global.SaveLoad = 0}
-Light=ls_light_create(x,y,75,360,0,make_color_rgb(103,103,103),32,false,false,50);
+Light=ls_light_create(x,y,75,360,0,make_color_rgb(102.5,102.5,102.5),32,false,false,50);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+if Box = 1
+{draw_sprite(Spr_GuiBox1,1,(global.GuiX+x),(global.GuiY+y))}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="49">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if Box = 1
+{Box = 0}
+else
+{Box = 1}
 </string>
           </argument>
         </arguments>

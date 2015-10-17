@@ -25,7 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>BazookaWait = 0
+            <string>SelfName = object_get_name(object_index)
+BazookaWait = 0
+
+if SelfName = "Obj_Gun"
+{VarPlayer = Obj_Kid}
+
+if SelfName = "Obj_Gun_P2"
+{VarPlayer = Obj_Kid_P2}
 </string>
           </argument>
         </arguments>
@@ -48,44 +55,44 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(Obj_Kid)
+            <string>if instance_exists(VarPlayer)
 {
-if Obj_Kid.Gun = "Small"
+if VarPlayer.Gun = "Small"
 {
-if Obj_Kid.Facing = 1
-{if Obj_Kid.Sprite = "Stand"
-{x = round(Obj_Kid.PosX+9)
- y = round(Obj_Kid.PosY-2)//+1
+if VarPlayer.Facing = 1
+{if VarPlayer.Sprite = "Stand"
+{x = round(VarPlayer.PosX+9)
+ y = round(VarPlayer.PosY-2)//+1
 }
-if Obj_Kid.Sprite = "Walk"
-{x = round(Obj_Kid.PosX+9)
- y = round(Obj_Kid.PosY-1)//+2
+if VarPlayer.Sprite = "Walk"
+{x = round(VarPlayer.PosX+9)
+ y = round(VarPlayer.PosY-1)//+2
 }
-if Obj_Kid.Sprite = "Jump"
-{x = round(Obj_Kid.PosX+9)
- y = round(Obj_Kid.PosY-4)//-1
+if VarPlayer.Sprite = "Jump"
+{x = round(VarPlayer.PosX+9)
+ y = round(VarPlayer.PosY-4)//-1
 }
-if Obj_Kid.Sprite = "Fall"
-{x = round(Obj_Kid.PosX+9)
- y = round(Obj_Kid.PosY-3)//+0
+if VarPlayer.Sprite = "Fall"
+{x = round(VarPlayer.PosX+9)
+ y = round(VarPlayer.PosY-3)//+0
 }}
 
-if Obj_Kid.Facing = -1
-{if Obj_Kid.Sprite = "Stand"
-{x = round(Obj_Kid.PosX-9)
- y = round(Obj_Kid.PosY-2)//+1
+if VarPlayer.Facing = -1
+{if VarPlayer.Sprite = "Stand"
+{x = round(VarPlayer.PosX-9)
+ y = round(VarPlayer.PosY-2)//+1
 }
-if Obj_Kid.Sprite = "Walk"
-{x = round(Obj_Kid.PosX-9)
- y = round(Obj_Kid.PosY-1)//+2
+if VarPlayer.Sprite = "Walk"
+{x = round(VarPlayer.PosX-9)
+ y = round(VarPlayer.PosY-1)//+2
 }
-if Obj_Kid.Sprite = "Jump"
-{x = round(Obj_Kid.PosX-9)
- y = round(Obj_Kid.PosY-4)//-1
+if VarPlayer.Sprite = "Jump"
+{x = round(VarPlayer.PosX-9)
+ y = round(VarPlayer.PosY-4)//-1
 }
-if Obj_Kid.Sprite = "Fall"
-{x = round(Obj_Kid.PosX-9)
- y = round(Obj_Kid.PosY-3)//+0
+if VarPlayer.Sprite = "Fall"
+{x = round(VarPlayer.PosX-9)
+ y = round(VarPlayer.PosY-3)//+0
 }}}
 }
 </string>
@@ -108,67 +115,44 @@ if Obj_Kid.Sprite = "Fall"
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(Obj_Kid)
-{if Obj_Kid.Gun = "Bazooka"
-{if Obj_Kid.Facing = 1
-{if Obj_Kid.Sprite = "Stand"
-{x = round(Obj_Kid.PosX+7)
- y = round(Obj_Kid.PosY-3)//+0
+            <string>if instance_exists(VarPlayer)
+{if VarPlayer.Gun = "Bazooka"
+{if VarPlayer.Facing = 1
+{if VarPlayer.Sprite = "Stand"
+{x = round(VarPlayer.PosX+7)
+ y = round(VarPlayer.PosY-3)//+0
 }
-if Obj_Kid.Sprite = "Walk"
-{x = round(Obj_Kid.PosX+7)
- y = round(Obj_Kid.PosY-2)//+1
+if VarPlayer.Sprite = "Walk"
+{x = round(VarPlayer.PosX+7)
+ y = round(VarPlayer.PosY-2)//+1
 }
-if Obj_Kid.Sprite = "Jump"
-{x = round(Obj_Kid.PosX+7)
- y = round(Obj_Kid.PosY-5)//-2
+if VarPlayer.Sprite = "Jump"
+{x = round(VarPlayer.PosX+7)
+ y = round(VarPlayer.PosY-5)//-2
 }
-if Obj_Kid.Sprite = "Fall"
-{x = round(Obj_Kid.PosX+7)
- y = round(Obj_Kid.PosY-4)//-1
+if VarPlayer.Sprite = "Fall"
+{x = round(VarPlayer.PosX+7)
+ y = round(VarPlayer.PosY-4)//-1
 }}
 
-if Obj_Kid.Facing = -1
-{if Obj_Kid.Sprite = "Stand"
-{x = round(Obj_Kid.PosX-7)
- y = round(Obj_Kid.PosY-3)//+0
+if VarPlayer.Facing = -1
+{if VarPlayer.Sprite = "Stand"
+{x = round(VarPlayer.PosX-7)
+ y = round(VarPlayer.PosY-3)//+0
 }
-if Obj_Kid.Sprite = "Walk"
-{x = round(Obj_Kid.PosX-7)
- y = round(Obj_Kid.PosY-2)//+1
+if VarPlayer.Sprite = "Walk"
+{x = round(VarPlayer.PosX-7)
+ y = round(VarPlayer.PosY-2)//+1
 }
-if Obj_Kid.Sprite = "Jump"
-{x = round(Obj_Kid.PosX-7)
- y = round(Obj_Kid.PosY-5)//-2
+if VarPlayer.Sprite = "Jump"
+{x = round(VarPlayer.PosX-7)
+ y = round(VarPlayer.PosY-5)//-2
 }
-if Obj_Kid.Sprite = "Fall"
-{x = round(Obj_Kid.PosX-7)
- y = round(Obj_Kid.PosY-4)//-1
+if VarPlayer.Sprite = "Fall"
+{x = round(VarPlayer.PosX-7)
+ y = round(VarPlayer.PosY-4)//-1
 }}
 }}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Instance_Destroy
-if !instance_exists(Obj_Kid)
-{instance_destroy()}
 </string>
           </argument>
         </arguments>
@@ -192,7 +176,7 @@ if !instance_exists(Obj_Kid)
           <argument>
             <kind>1</kind>
             <string>/// Instance_Destroy
-if !instance_exists(Obj_Kid)
+if !instance_exists(VarPlayer)
 {instance_destroy()}
 if global.Player = "Kid"
 {visible = 1}
@@ -220,24 +204,24 @@ BazookaWait -= 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(Obj_Kid)
+            <string>if instance_exists(VarPlayer)
 {
-if Obj_Kid.Gun = "Small"
+if VarPlayer.Gun = "Small"
 {
-if Obj_Kid.Facing = 1
+if VarPlayer.Facing = 1
  {sprite_index = Spr_Gun_Small_R}
  
-if Obj_Kid.Facing = -1
+if VarPlayer.Facing = -1
  {sprite_index = Spr_Gun_Small_L}
 image_speed = Frame_Speed(30)
 }
 
-if Obj_Kid.Gun = "Bazooka"
+if VarPlayer.Gun = "Bazooka"
 {
-if Obj_Kid.Facing = 1
+if VarPlayer.Facing = 1
  {sprite_index = Spr_Gun_Bazooka_R}
  
-if Obj_Kid.Facing = -1
+if VarPlayer.Facing = -1
  {sprite_index = Spr_Gun_Bazooka_L}
 image_speed = Frame_Speed(30)
 }
@@ -262,20 +246,20 @@ image_speed = Frame_Speed(30)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(Obj_Kid)
+            <string>if instance_exists(VarPlayer)
 {if global.Player = "Kid"
-{if Obj_Kid.Press_Shoot
-{if Obj_Kid.Gun = "Small" &amp;&amp; instance_number(Obj_Bullet_Small) &lt; 4
- {if Obj_Kid.Facing = 1
+{if VarPlayer.Press_Shoot
+{if VarPlayer.Gun = "Small" &amp;&amp; instance_number(Obj_Bullet_Small) &lt; 4
+ {if VarPlayer.Facing = 1
   {instance_create(x+3,y-2,Obj_Bullet_Small)}
- if Obj_Kid.Facing = -1
+ if VarPlayer.Facing = -1
   {instance_create(x-4,y-2,Obj_Bullet_Small)}
  audio_play_sound_on(global.SFX,Snd_Shoot,false,1)
  }
-if Obj_Kid.Gun = "Bazooka" &amp;&amp; instance_number(Obj_Bullet_Rocket) &lt; 1 &amp;&amp; BazookaWait &lt;= 0
- {if Obj_Kid.Facing = 1
+if VarPlayer.Gun = "Bazooka" &amp;&amp; instance_number(Obj_Bullet_Rocket) &lt; 1 &amp;&amp; BazookaWait &lt;= 0
+ {if VarPlayer.Facing = 1
   {instance_create(x+10,y,Obj_Bullet_Rocket)}
- if Obj_Kid.Facing = -1
+ if VarPlayer.Facing = -1
   {instance_create(x-10,y,Obj_Bullet_Rocket)}
  audio_play_sound_on(global.SFX,Snd_Shoot,false,1)
  BazookaWait = 30

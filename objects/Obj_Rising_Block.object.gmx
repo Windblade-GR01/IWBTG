@@ -3,7 +3,7 @@
   <spriteName>Spr_Rising_Sys</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1</depth>
+  <depth>1</depth>
   <persistent>0</persistent>
   <parentName>Obj_Sub_Block</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -58,6 +58,7 @@ VSpeed = 0
 Fall = 0
 Up = 0
 ShadowOn = 0
+Speed = 2
 </string>
           </argument>
         </arguments>
@@ -104,13 +105,13 @@ ShadowOn = 0
           <argument>
             <kind>1</kind>
             <string>if place_meeting(x,y-2,Obj_Kid) &amp;&amp; !place_meeting(x,PosY+VSpeed*2,Obj_Block)
-{Obj_Kid.PosY = PosY-9.25}
+{Obj_Kid.PosY = PosY-8.75}
 
 if Fall = 0 &amp;&amp; place_meeting(x,y-1,Obj_Kid)
 {Fall = 1}
 
 if Fall = 1
-{VSpeed = -2}
+{VSpeed = -Speed}
 
 //Vertical Collision
 if (place_meeting(x,PosY+VSpeed,Obj_Block))

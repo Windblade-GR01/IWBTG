@@ -30,12 +30,17 @@ global.SFX = audio_emitter_create()
 //global.BGM = audio_emitter_create()
 alarm[0] = 5
 
+
+Change_Room_Delete()
+
 if Save_Check()
 {Save_End()
-Save_Load()}
+Save_Load()
+global.Light = 1}
 else
 {StartSoundSystem()
 global.Played_BGM = -1
+global.Light = 1
 room_goto_next()}
 </string>
           </argument>

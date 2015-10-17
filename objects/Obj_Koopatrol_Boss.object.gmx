@@ -245,7 +245,7 @@ else
 {OnFloor = 0}
 
 VSpeed += Gravity
-
+/*
 //Horizontal Collision
 if (place_meeting(PosX+HSpeed,PosY,Obj_Solid))
 {
@@ -280,6 +280,89 @@ if (place_meeting(PosX,PosY+VSpeed+1,Obj_Platform)) &amp;&amp; VSpeed &gt;= 0 &a
     }
     VSpeed = 0;
 }}
+
+PosY += VSpeed
+y = round(PosY)*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Other Collision Code
+
+//Horizontal Collision
+if (place_meeting(PosX+HSpeed,PosY,Obj_Solid))
+{
+    if HSpeed != 0
+    {if HSpeed &gt; 0
+     {PosX = floor(PosX)}
+    else
+     {PosX = ceil(PosX)}
+    }
+    
+    while(!place_meeting(PosX+sign(HSpeed),PosY,Obj_Solid))
+    {
+        PosX += sign(HSpeed)
+    }
+    HSpeed = 0;
+}
+
+PosX += HSpeed
+x = round(PosX)
+
+//Vertical Collision
+if (place_meeting(PosX,PosY+VSpeed,Obj_Solid))
+{
+
+    if VSpeed != 0
+    {if VSpeed &gt; 0
+     {PosY = floor(PosY)}
+    else
+     {PosY = ceil(PosY)}
+    }
+
+    while(!place_meeting(PosX,PosY+sign(VSpeed),Obj_Solid))
+    {
+        PosY += sign(VSpeed)
+    }
+    VSpeed = 0;
+}
+
+else
+{
+CPlatform = collision_rectangle(PosX-4,PosY+8,PosX+4,PosY+8+VSpeed,Obj_Platform,true,false)
+if (CPlatform != noone) &amp;&amp; (VSpeed &gt;= 0)
+{
+
+    if VSpeed != 0
+    {if VSpeed &gt; 0
+     {PosY = floor(PosY)}
+    else
+     {PosY = ceil(PosY)}
+    }
+
+    while(!place_meeting(PosX,PosY+sign(VSpeed),Obj_Platform))
+    {
+        PosY += sign(VSpeed)
+    }
+    VSpeed = 0
+}
+}
 
 PosY += VSpeed
 y = round(PosY)
@@ -335,7 +418,7 @@ Wait = 15}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>Light=ls_light_create(x,y,75,360,0,make_color_rgb(103,103,103),32,false,false,50);
+            <string>Light=ls_light_create(x,y,75,360,0,make_color_rgb(102,102,102),32,false,false,50);
 </string>
           </argument>
         </arguments>

@@ -11,6 +11,7 @@ global.SFacing = ini_read_real("Save", "Facing", 1);
 global.GetBazooka = ini_read_real("Save", "GetBazooka", 0)
 global.SGun = ini_read_string("Save", "Gun", "Small")
 global.Player = ini_read_string("Save", "Player", "Kid")
+global.Direction = "None"
 room_goto(ini_read_real("Save", "Room", 2))
 instance_create(global.SPosX,global.SPosY,Obj_Kid)
 ini_close();

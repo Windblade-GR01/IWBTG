@@ -7,7 +7,7 @@ if argument0 != -1
 //{FMODSoundFree(global.Played_BGM)}
 if argument0 != global.Played_BGM
 {FMODAllStop()
-FMODSoundLoop(argument0,false)
+//FMODSoundLoop(argument0,false)
 global.Played_BGM = argument0}
 //global.Played_BGM = argument0}
 }

@@ -81,8 +81,9 @@ if y &gt; room_height+(sprite_height-sprite_yoffset)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ls_light_set_pos(Light,x+16,y+16)
-ls_light_set_pos(Light1,x+16,y+16)
+            <string>if global.Light = 1
+{ls_light_set_pos(Light,x+16,y+16)
+ls_light_set_pos(Light1,x+16,y+16)}
 </string>
           </argument>
         </arguments>

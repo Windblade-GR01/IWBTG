@@ -30,7 +30,7 @@ nextRoom = -1; //The room to transition to.
 transition = TRANS_FADE_COLOR; //The selected transition.
 steps = 30; //The transition time in steps.
 color = c_black; //The transition color (if needed).
-jam = true; //Whether or not to jam the keyboard and mouse - by doing this, no keyboard or mouse input will be recogniced during the transition.
+jam = false; //Whether or not to jam the keyboard and mouse - by doing this, no keyboard or mouse input will be recogniced during the transition.
 
 count = 0; //Counting how far into the transition we are.
 
@@ -88,6 +88,8 @@ surface_free(surface2);
 for(i=0;i&lt;8;i++){
  background_visible[i] = bVis[i];
 }
+
+global.Warp = 0
 </string>
           </argument>
         </arguments>
@@ -119,9 +121,9 @@ if count &gt; steps {
 }
 
 //By using io_clear in the begin step event we stop input from having effect.
-if jam == true {
- io_clear();
-}
+//if jam == true {
+// io_clear();
+//}
 
 /*
  If any of the surfaces are not existing for some reason, we simply skip the
@@ -247,7 +249,7 @@ if transition == TRANS_FADE_COLOR {
  
  draw_set_alpha(1-abs(count-steps/2)/(steps/2));
  draw_set_color(color);
- draw_rectangle(0,0,__guiW,__guiH,false);
+ draw_rectangle(0,0,view_wview,view_hview,false);
  draw_set_alpha(1);
 }
 //Cross fade
@@ -256,7 +258,8 @@ if transition == TRANS_CROSS_FADE {
   room_goto(nextRoom);
  }
  
- draw_surface_stretched_ext(surface,0,0,__guiW,__guiH,c_white,1-count/steps);
+ //draw_surface_stretched_ext(surface,0,0,__guiW,__guiH,c_white,1-count/steps);
+ draw_surface_ext(surface,global.GuiX,global.GuiY,1,1,0,c_white,1-count/steps);
 }
 //Slide left
 if transition == TRANS_SLIDE_LEFT {
@@ -264,7 +267,8 @@ if transition == TRANS_SLIDE_LEFT {
   room_goto(nextRoom);
  }
  
- draw_surface_stretched_ext(surface,-count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface,-count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ draw_surface_ext(surface,-count/steps*view_wview,global.GuiY,1,1,0,c_white,1);
 }
 //Slide right
 if transition == TRANS_SLIDE_RIGHT {
@@ -272,7 +276,8 @@ if transition == TRANS_SLIDE_RIGHT {
   room_goto(nextRoom);
  }
  
- draw_surface_stretched_ext(surface,count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface,count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ draw_surface_ext(surface,count/steps*view_wview,global.GuiY,1,1,0,c_white,1);
 }
 //Slide up
 if transition == TRANS_SLIDE_UP {
@@ -280,7 +285,8 @@ if transition == TRANS_SLIDE_UP {
   room_goto(nextRoom);
  }
  
- draw_surface_stretched_ext(surface,0,-count/steps*__guiH,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface,0,-count/steps*__guiH,__guiW,__guiH,c_white,1);
+ draw_surface_ext(surface,global.GuiX,-count/steps*view_hview,1,1,0,c_white,1);
 }
 //Slide down
 if transition == TRANS_SLIDE_DOWN {
@@ -288,39 +294,48 @@ if transition == TRANS_SLIDE_DOWN {
   room_goto(nextRoom);
  }
  
- draw_surface_stretched_ext(surface,0,count/steps*__guiH,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface,0,count/steps*__guiH,__guiW,__guiH,c_white,1);
+ draw_surface_ext(surface,global.GuiX,count/steps*view_hview,1,1,0,c_white,1);
 }
 //Push left
 if transition == TRANS_PUSH_LEFT {
  if room != nextRoom {
   room_goto(nextRoom);
  }
- draw_surface_stretched_ext(surface2,(1-count/steps)*__guiW,0,__guiW,__guiH,c_white,1);
- draw_surface_stretched_ext(surface,-count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface2,(1-count/steps)*__guiW,0,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface,-count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ draw_surface_ext(surface2,global.GuiX+((1-count/steps)*view_wview),global.GuiY,1,1,0,c_white,1);
+ draw_surface_ext(surface ,global.GuiX+  (-count/steps *view_wview),global.GuiY,1,1,0,c_white,1);
 }
 //Push right
 if transition == TRANS_PUSH_RIGHT {
  if room != nextRoom {
   room_goto(nextRoom);
  }
- draw_surface_stretched_ext(surface2,(-1+count/steps)*__guiW,0,__guiW,__guiH,c_white,1);
- draw_surface_stretched_ext(surface,count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface2,(-1+count/steps)*__guiW,0,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface,count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ draw_surface_ext(surface2,global.GuiX+((-1+count/steps)*view_wview),global.GuiY,1,1,0,c_white,1);
+ draw_surface_ext(surface ,global.GuiX+    (count/steps *view_wview),global.GuiY,1,1,0,c_white,1);
 }
 //Push up
 if transition == TRANS_PUSH_UP {
  if room != nextRoom {
   room_goto(nextRoom);
  }
- draw_surface_stretched_ext(surface2,0,(1-count/steps)*__guiH,__guiW,__guiH,c_white,1);
- draw_surface_stretched_ext(surface,0,-count/steps*__guiH,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface2,0,(1-count/steps)*__guiH,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface,0,-count/steps*__guiH,__guiW,__guiH,c_white,1);
+ draw_surface_ext(surface2,global.GuiX,global.GuiY+((1-count/steps)*view_hview),1,1,0,c_white,1);
+ draw_surface_ext(surface ,global.GuiX,global.GuiY+  (-count/steps *view_hview),1,1,0,c_white,1);
 }
 //Push down
 if transition == TRANS_PUSH_DOWN {
  if room != nextRoom {
   room_goto(nextRoom);
  }
- draw_surface_stretched_ext(surface2,0,(-1+count/steps)*__guiH,__guiW,__guiH,c_white,1);
- draw_surface_stretched_ext(surface,0,count/steps*__guiH,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface2,0,(-1+count/steps)*__guiH,__guiW,__guiH,c_white,1);
+ //draw_surface_stretched_ext(surface,0,count/steps*__guiH,__guiW,__guiH,c_white,1);
+ draw_surface_ext(surface2,global.GuiX,global.GuiY+(-1+count/steps)*view_hview,1,1,0,c_white,1);
+ draw_surface_ext(surface ,global.GuiX,global.GuiY+    count/steps *view_hview,1,1,0,c_white,1);
 }
 //Minimize
 if transition == TRANS_MINIMIZE {

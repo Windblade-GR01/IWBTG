@@ -152,6 +152,7 @@
       <sprite>sprites\Spr_Kid_Fall_R</sprite>
       <sprite>sprites\Spr_Kid_Fall_L</sprite>
       <sprite>sprites\Mask_Player</sprite>
+      <sprite>sprites\Spr_GuiBox1</sprite>
       <sprite>sprites\Kid_Tile</sprite>
     </sprites>
     <sprites name="Guns">
@@ -284,6 +285,8 @@
   <backgrounds name="background">
     <background>background\Tiles_Castle</background>
     <background>background\Tiles_Grass</background>
+    <background>background\Tiles_Grass16</background>
+    <background>background\Tiles_Grass32</background>
     <background>background\Bg_Castle</background>
     <background>background\Bg_Castle_Blue</background>
     <background>background\Bg_Sky</background>
@@ -317,7 +320,7 @@
     <script>scripts\Anim_Speed.gml</script>
     <script>scripts\Frame_Speed.gml</script>
     <script>scripts\Change_Room_Delete.gml</script>
-    <script>scripts\Room_goto_transition.gml</script>
+    <script>scripts\room_goto_transition.gml</script>
     <scripts name="GMFMODSimple">
       <script>scripts\HowToUse.gml</script>
       <script>scripts\Known_Problems_and_Questions.gml</script>
@@ -562,7 +565,9 @@
     </objects>
     <objects name="Player">
       <object>objects\Obj_Ligth</object>
+      <object>objects\Obj_Kid_P2</object>
       <object>objects\Obj_Kid</object>
+      <object>objects\Obj_Gun_P2</object>
       <object>objects\Obj_Gun</object>
       <object>objects\Obj_Room_Change</object>
       <object>objects\Obj_Save_Float</object>

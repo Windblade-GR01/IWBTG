@@ -52,10 +52,10 @@
             <string>if Obj_Kid.Press_Up
 {if Obj_Kid.Facing = 1
 {Obj_Kid.PosX = x+17
-Obj_Kid.PosY = y-8}
+Obj_Kid.PosY = y-7.6}
 else
 {Obj_Kid.PosX = x+16
-Obj_Kid.PosY = y-8}
+Obj_Kid.PosY = y-7.6}
 sprite_index = Spr_Save1
 image_speed = Frame_Speed(30)
 Save_Save()}
