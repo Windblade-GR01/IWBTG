@@ -128,7 +128,6 @@
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\Easy Lighting Studio</extension>
-    <extension index="1">extensions\GMFileSystem</extension>
   </NewExtensions>
   <sounds name="sound">
     <sound>sound\Snd_Jump</sound>
@@ -307,12 +306,13 @@
   <scripts name="scripts">
     <script>scripts\StartSoundSystem.gml</script>
     <script>scripts\Bgm_Play.gml</script>
-    <script>scripts\Bgm_Play_old.gml</script>
     <script>scripts\Save_End.gml</script>
     <script>scripts\Save_Reload.gml</script>
+    <script>scripts\Reset_Game.gml</script>
+    <script>scripts\Bgm_Play_old.gml</script>
     <script>scripts\Save_Check.gml</script>
-    <script>scripts\Save_Load.gml</script>
     <script>scripts\Save_Delete.gml</script>
+    <script>scripts\Save_Load.gml</script>
     <script>scripts\Save_Save.gml</script>
     <script>scripts\Room_Settings_SYS.gml</script>
     <script>scripts\Room_Settings_LV1.gml</script>
@@ -549,9 +549,9 @@
       <object>objects\Obj_Koopatrol_Lance</object>
       <object>objects\Obj_Boom_Boss</object>
       <object>objects\Obj_Lamp</object>
-      <object>objects\Obj_ATrans</object>
       <object>objects\Obj_Boom</object>
       <object>objects\Obj_Bomb_Boss</object>
+      <object>objects\Obj_ATrans</object>
       <object>objects\Obj_Save</object>
     </objects>
     <objects name="Helpers">
@@ -591,6 +591,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\RM_Boot</room>
     <room>rooms\RM_Main</room>
     <room>rooms\RM_Tile</room>
     <rooms name="Level 1">

@@ -126,12 +126,12 @@ audio_play_sound_on(global.SFX,Snd_Hit,false,1)}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if Mode != "Shell"
+            <string>//if Mode != "Shell"
 {Damage = other.Damage
 with(other){instance_destroy()}
 alarm[10] = 1}
-else
-{with(other){instance_destroy()}}
+//else
+//{with(other){instance_destroy()}}
 </string>
           </argument>
         </arguments>

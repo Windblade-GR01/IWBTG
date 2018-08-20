@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>image_speed = Frame_Speed(10)
 
-
+global.firstBoot = 1;
 
 
 place_meeting (x+1,y+1,Obj_Block_32)

@@ -115,10 +115,15 @@ if instance_exists(Obj_Kid) &amp;&amp; Wait &lt;= 0 &amp;&amp; Mode = "Stand"
 {Mode = "JumpS1"
 Wait = 2}
 
-if Mode = "Jump1" &amp;&amp; OnFloor = 1 &amp;&amp; Wait &lt;= 0
-{Wait = 4//90
-//Mode = "Shell"}
-Mode = "Stand2"}
+if Mode = "Jump1" &amp;&amp; OnFloor = 1 &amp;&amp; Wait &lt;= 0 {
+    if random(1) &gt; 0.5 {
+        Mode = "Shell"
+        Wait = 90
+    } else {
+        Mode = "Stand2"
+        Wait = 4
+    }
+}
 
 if Wait &lt;= 0 &amp;&amp; Mode = "Shell"
 {Wait = 4
@@ -160,15 +165,20 @@ else
 {Facing = -1}}
 HSpeed = 0}
 
-if Mode = "Shell"
+if Mode = "Shell" {
 //[State Shell]
-{if instance_exists(Obj_Kid){
+/*
+if instance_exists(Obj_Kid){
 {if Obj_Kid.PosX-90 &gt; PosX
 {Facing = 1}
 if Obj_Kid.PosX+90 &lt; PosX
 {Facing = -1}}
+}*/
+    if place_meeting(PosX+HSpeed,PosY,Obj_Solid) {
+        Facing = -Facing
+    }
+    HSpeed = 3 * Facing
 }
-HSpeed = 6 * Facing}
 
 if Mode = "JumpS1"
 {if random(1) &gt; 0.25

@@ -26,22 +26,16 @@
           <argument>
             <kind>1</kind>
             <string>global.SaveLoad = 0
-global.SFX = audio_emitter_create()
+
 //global.BGM = audio_emitter_create()
 alarm[0] = 5
-
-
-Change_Room_Delete()
-
-if Save_Check()
-{Save_End()
-Save_Load()
-global.Light = 1}
-else
-{StartSoundSystem()
-global.Played_BGM = -1
-global.Light = 1
-room_goto_next()}
+    global.SFX = audio_emitter_create()
+    StartSoundSystem()
+    global.Played_BGM = -1
+    global.Light = 1
+    global.firstBoot = 0;
+    room_goto_next()
+global.roomSeeds = ds_list_create()
 </string>
           </argument>
         </arguments>

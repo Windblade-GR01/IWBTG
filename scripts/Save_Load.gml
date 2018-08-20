@@ -1,8 +1,15 @@
 global.SaveLoad = 1
+global.Warp = 0
+//global.Seed = random(10000);
+ds_list_clear(global.roomSeeds)
+
 with (Obj_Kid)
 {instance_destroy()}
 with (Obj_Gun)
 {instance_destroy()}
+
+Change_Room_Delete()
+
 ls_system_clear()
 ini_open("Save.ini");
 global.SPosX = ini_read_real("Save", "Pos X", 64);
@@ -15,3 +22,4 @@ global.Direction = "None"
 room_goto(ini_read_real("Save", "Room", 2))
 instance_create(global.SPosX,global.SPosY,Obj_Kid)
 ini_close();
+global.SaveLoad = 0

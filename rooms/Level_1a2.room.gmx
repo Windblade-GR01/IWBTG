@@ -267,7 +267,7 @@
     <instance objName="Obj_Spike_Left" x="128" y="160" name="inst_4E243ED8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Lamp" x="112" y="128" name="inst_B50AC80F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Block_32" x="0" y="160" name="inst_F1576599" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Platform_32" x="32" y="384" name="inst_5786C96A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Obj_Platform_32" x="32" y="320" name="inst_5786C96A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Block_32" x="0" y="192" name="inst_8C3B90E8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Block_32" x="0" y="224" name="inst_192011D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Falling_Light" x="640" y="224" name="inst_A2972479" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
