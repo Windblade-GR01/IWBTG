@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>1</depth>
   <persistent>0</persistent>
-  <parentName>Obj_Killer</parentName>
+  <parentName>Obj_Damage</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -32,6 +32,7 @@ else
 {sprite_index = Spr_Koopatrol_Trowing_Lance_L
 hspeed = -5}
 Wait = 50
+Damage = 1
 </string>
           </argument>
         </arguments>

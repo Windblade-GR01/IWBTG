@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>SelfName = object_get_name(object_index)
 BazookaWait = 0
+GunWait = 0
 
 if SelfName = "Obj_Gun"
 {VarPlayer = Obj_Kid}
@@ -184,6 +185,7 @@ else
 {visible = 0}
 
 BazookaWait -= 1
+GunWait -= 1
 </string>
           </argument>
         </arguments>
@@ -246,25 +248,35 @@ image_speed = Frame_Speed(30)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if instance_exists(VarPlayer)
-{if global.Player = "Kid"
-{if VarPlayer.Press_Shoot
-{if VarPlayer.Gun = "Small" &amp;&amp; instance_number(Obj_Bullet_Small) &lt; 4
- {if VarPlayer.Facing = 1
-  {instance_create(x+3,y-2,Obj_Bullet_Small)}
- if VarPlayer.Facing = -1
-  {instance_create(x-4,y-2,Obj_Bullet_Small)}
- audio_play_sound_on(global.SFX,Snd_Shoot,false,1)
- }
-if VarPlayer.Gun = "Bazooka" &amp;&amp; instance_number(Obj_Bullet_Rocket) &lt; 1 &amp;&amp; BazookaWait &lt;= 0
- {if VarPlayer.Facing = 1
-  {instance_create(x+10,y,Obj_Bullet_Rocket)}
- if VarPlayer.Facing = -1
-  {instance_create(x-10,y,Obj_Bullet_Rocket)}
- audio_play_sound_on(global.SFX,Snd_Shoot,false,1)
- BazookaWait = 30
- }
-}}}
+            <string>if instance_exists(VarPlayer) {
+    if global.Player = "Kid" {
+        if VarPlayer.Hold_Shoot { 
+        }
+        if VarPlayer.Press_Shoot {
+            if VarPlayer.Gun = "Small" &amp;&amp; instance_number(Obj_Bullet_Small) &lt; 4 &amp;&amp; GunWait &lt;= 0 {
+                if VarPlayer.Facing = 1 {
+                    instance_create(x+3,y-2,Obj_Bullet_Small)
+                }
+                if VarPlayer.Facing = -1 {
+                    instance_create(x-4,y-2,Obj_Bullet_Small)
+                }
+                audio_play_sound_on(global.SFX,Snd_Shoot,false,1)
+                GunWait = 0
+                }
+        
+            if VarPlayer.Gun = "Bazooka" &amp;&amp; instance_number(Obj_Bullet_Rocket) &lt; 4 &amp;&amp; BazookaWait &lt;= 0 {
+                if VarPlayer.Facing = 1 {
+                    instance_create(x+10,y,Obj_Bullet_Rocket)
+                }
+            if VarPlayer.Facing = -1 {
+                instance_create(x-10,y,Obj_Bullet_Rocket)
+            }
+            audio_play_sound_on(global.SFX,Snd_Shoot,false,1)
+            BazookaWait = 30
+            }
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

@@ -262,6 +262,7 @@
     <sprite>sprites\Spr_Room_Change</sprite>
     <sprite>sprites\Spr_Trigger</sprite>
     <sprite>sprites\Spr_Door</sprite>
+    <sprite>sprites\Spr_KidLife</sprite>
     <sprite>sprites\Spr_Lifebar</sprite>
     <sprite>sprites\Spr_Lifebar_Back2</sprite>
     <sprite>sprites\Spr_Lifebar_Back</sprite>
@@ -549,8 +550,8 @@
       <object>objects\Obj_Koopatrol_Lance</object>
       <object>objects\Obj_Boom_Boss</object>
       <object>objects\Obj_Lamp</object>
-      <object>objects\Obj_Boom</object>
       <object>objects\Obj_Bomb_Boss</object>
+      <object>objects\Obj_Boom</object>
       <object>objects\Obj_ATrans</object>
       <object>objects\Obj_Save</object>
     </objects>
@@ -581,10 +582,11 @@
       <object>objects\Obj_Spike_Down_Parent</object>
       <object>objects\Obj_Spike_Left_Parent</object>
       <object>objects\Obj_Spike_Right_Parent</object>
+      <object>objects\Obj_Damage</object>
       <object>objects\Obj_Block_Parent</object>
       <object>objects\Obj_Sub_Block</object>
-      <object>objects\Obj_Solid</object>
       <object>objects\Obj_Player</object>
+      <object>objects\Obj_Solid</object>
       <object>objects\Obj_Start</object>
       <object>objects\Obj_Main</object>
       <object>objects\Obj_Transition</object>

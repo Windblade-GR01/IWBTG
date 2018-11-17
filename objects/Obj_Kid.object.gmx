@@ -28,6 +28,8 @@
             <string>global.SaveLoad = 0
 //Get Name
 SelfName = object_get_name(object_index)
+Life = 3
+MercyFrames = 0
 
 // IntPosVar
 PosX = x
@@ -64,30 +66,32 @@ DJump = 1
 image_speed = Frame_Speed(10)
 
 //Int Controls Vars
-if SelfName = "Obj_Kid"
-{Key_Left = vk_left
-Key_Right = vk_right
-Key_Jump = ord('Z')
-Key_Shoot = ord('X')
-Key_Up = vk_up
-Key_Down = vk_down
-Key_Change = ord('S')
-Key_Trans = vk_numpad6}
+if SelfName = "Obj_Kid" {
+  Key_Left = vk_left
+  Key_Right = vk_right
+  Key_Jump = ord('Z')
+  Key_Shoot = ord('X')
+  Key_Up = vk_up
+  Key_Down = vk_down
+  Key_Change = ord('S')
+  Key_Trans = ord('A')}
 
-if SelfName = "Obj_Kid_P2"
-{Key_Left = ord('J')
-Key_Right = ord('L')
-Key_Jump = ord('Z')
-Key_Shoot = ord('X')
-Key_Up = ord('I')
-Key_Down = ord('K')
-Key_Change = ord('S')
-Key_Trans = ord('A')}
+if SelfName = "Obj_Kid_P2" {
+  Key_Left = ord('J')
+  Key_Right = ord('L')
+  Key_Jump = ord('Z')
+  Key_Shoot = ord('X')
+  Key_Up = ord('I')
+  Key_Down = ord('K')
+  Key_Change = ord('S')
+  Key_Trans = ord('A')
+}
 
 Hold_Left = 0
 Hold_Right = 0
 Press_Jump = 0
 Hold_Jump = 0
+Hold_Shoot = 0
 Press_Shoot = 0
 Press_Up = 0
 Press_Down = 0
@@ -102,9 +106,11 @@ OnFloor = 0
 OnSolid = 0
 EXT_PosY = 0
 
-if SelfName = "Obj_Kid"
-{if !instance_exists(Obj_Gun)
-{instance_create(x,y,Obj_Gun)}}
+if SelfName = "Obj_Kid" {
+  if !instance_exists(Obj_Gun)
+    {instance_create(x,y,Obj_Gun)
+   }
+  }
 
 if SelfName = "Obj_Kid_P2"
 {if !instance_exists(Obj_Gun_P2)
@@ -268,7 +274,7 @@ else
 Hold_Left = keyboard_check(Key_Left)
 Hold_Right = keyboard_check(Key_Right)
 Hold_Jump = keyboard_check(Key_Jump)
-Hold_Shoot = keyboard_check_pressed(Key_Shoot)
+Hold_Shoot = keyboard_check(Key_Shoot)
 
 Press_Jump = keyboard_check_pressed(Key_Jump)
 Press_Shoot = keyboard_check_pressed(Key_Shoot)
@@ -648,13 +654,75 @@ else
 if Obj_Kid.Gun = "Bazooka"
 {Obj_Kid.Gun = "Small"}}
 
-if Press_Trans = 1
-{if global.Player = "Kid"
-{global.Player = "Dry"}
-else
-if global.Player = "Dry"
-{global.Player = "Kid"}
-instance_create(x,y,Obj_Ligth)}
+if Press_Trans = 1 {
+    if global.Player = "Kid" {
+        global.Player = "Dry"
+    }
+    else if global.Player = "Dry" {
+        global.Player = "Kid"
+    }
+    instance_create(x,y,Obj_Ligth)
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if MercyFrames &gt; 0 {
+    MercyFrames--
+    if (MercyFrames % 4 = 0 || MercyFrames % 3 = 0) &amp;&amp; MercyFrames &gt; 1 {
+        visible = false
+    } else {
+        visible = true
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="Obj_Damage">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if MercyFrames = 0 {
+    if Life - other.Damage &lt;= 0 {
+        instance_destroy()
+    }
+    else {
+        MercyFrames = 30
+        Life = Life - other.Damage
+        audio_play_sound_on(global.SFX,Snd_Hit,false,1)
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -768,9 +836,13 @@ Light=ls_light_create(x,y,75,360,0,make_color_rgb(102.5,102.5,102.5),32,false,fa
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if Box = 1
-{draw_sprite(Spr_GuiBox1,1,(global.GuiX+x),(global.GuiY+y))}
+            <string>if Box = 1 {
+    draw_sprite(Spr_GuiBox1,1,(global.GuiX+x),(global.GuiY+y))
+}
+
+if global.ShieldMode = 1 {
+    draw_sprite(Spr_KidLife,Life,(global.GuiX+x),(global.GuiY+y)-35)
+}
 </string>
           </argument>
         </arguments>

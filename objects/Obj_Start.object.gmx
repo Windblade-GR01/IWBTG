@@ -34,6 +34,7 @@ alarm[0] = 5
     global.Played_BGM = -1
     global.Light = 1
     global.firstBoot = 0;
+    global.ShieldMode = 0
     room_goto_next()
 global.roomSeeds = ds_list_create()
 </string>

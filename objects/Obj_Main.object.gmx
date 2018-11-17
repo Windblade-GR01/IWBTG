@@ -265,9 +265,10 @@ Room_Settings_LV1()
             <string>if ds_list_find_index(global.roomSeeds, room) = -1 {
     room_persistent = false
     room_restart()
-    room_persistent = false
     ds_list_add(global.roomSeeds, room)
+    //room_persistent = true
     ls_system_clear()
+    global.Light = 1
 }
 </string>
           </argument>

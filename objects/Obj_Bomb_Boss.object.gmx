@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Obj_Killer</parentName>
+  <parentName>Obj_Damage</parentName>
   <maskName>Spr_Bomb2</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -50,6 +50,7 @@ else
 {hspeed = 2 * Obj_Dry_Boss.Facing}
 vspeed = -4
 gravity = 0.4
+Damage = 1
 </string>
           </argument>
         </arguments>

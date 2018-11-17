@@ -251,10 +251,6 @@
     <instance objName="Obj_Heli" x="96" y="1312" name="inst_0A099B1F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Heli" x="96" y="1376" name="inst_8F7C38C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Heli" x="96" y="1440" name="inst_B176167A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Heli" x="96" y="1504" name="inst_35BB5E60" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Heli" x="96" y="1568" name="inst_CDDA584E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Heli" x="704" y="1568" name="inst_2BCA9197" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Heli" x="704" y="1504" name="inst_747F3277" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Heli" x="704" y="1440" name="inst_E96CEE12" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Heli" x="704" y="1376" name="inst_06B91D77" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Heli" x="704" y="1312" name="inst_F57175C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -297,13 +293,13 @@
     <instance objName="Obj_Block_32" x="480" y="608" name="inst_B153263A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Block_32" x="512" y="608" name="inst_27B0F8AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Block_32" x="640" y="608" name="inst_0C148446" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Save" x="384" y="56" name="inst_98606384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Obj_Save" x="384" y="96" name="inst_98606384" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Platform_32" x="384" y="56" name="inst_D8954808" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Light_Barrier_32" x="384" y="56" name="inst_5A4B75AA" locked="0" code="" scaleX="1" scaleY="0.25" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Light_Barrier_32" x="384" y="16" name="inst_FB832C0E" locked="0" code="" scaleX="1" scaleY="0.25" colour="4294967295" rotation="0"/>
-    <instance objName="Obj_Falling_Block" x="384" y="96" name="inst_2397542B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Obj_Light_Barrier_32" x="384" y="96" name="inst_5A4B75AA" locked="0" code="" scaleX="1" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="Obj_Light_Barrier_32" x="384" y="56" name="inst_FB832C0E" locked="0" code="" scaleX="1" scaleY="0.25" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Platform_32" x="352" y="96" name="inst_20FDF99D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="Obj_Platform_32" x="416" y="96" name="inst_8474FB59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="Obj_Platform_32" x="384" y="96" name="inst_9F875309" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="Tiles_Castle" x="768" y="1152" w="32" h="32" xo="32" yo="32" id="10003708" name="inst_42A1B24C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

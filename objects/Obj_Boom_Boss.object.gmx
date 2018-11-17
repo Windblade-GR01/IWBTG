@@ -37,6 +37,7 @@ PosX = x
 PosY = y
 OnFloor = 1
 image_speed = Frame_Speed(15)
+Damage = 1
 </string>
           </argument>
         </arguments>
@@ -63,7 +64,7 @@ image_speed = Frame_Speed(15)
 ls_light_destroy(Light)
 effect_create_above(ef_firework,x,y-5,1,c_red)
 audio_play_sound_on(global.SFX,Snd_Death,false,1)
-instance_create(x,y,Obj_ATrans)
+//instance_create(x,y,Obj_ATrans)
 </string>
           </argument>
         </arguments>
@@ -111,22 +112,23 @@ instance_create(x,y,Obj_ATrans)
             <kind>1</kind>
             <string>///Mode Change Code
 
-if instance_exists(Obj_Kid) &amp;&amp; Wait &lt;= 0 &amp;&amp; Mode = "Stand"
-{Mode = "JumpS1"
-Wait = 2}
+if instance_exists(Obj_Kid) &amp;&amp; Wait &lt;= 0 &amp;&amp; Mode = "Stand" {
+    Mode = "JumpS1"
+    Wait = 2
+}
 
 if Mode = "Jump1" &amp;&amp; OnFloor = 1 &amp;&amp; Wait &lt;= 0 {
     if random(1) &gt; 0.5 {
         Mode = "Shell"
-        Wait = 90
+        Wait = 180//90
     } else {
         Mode = "Stand2"
-        Wait = 4
+        Wait = 10
     }
 }
 
 if Wait &lt;= 0 &amp;&amp; Mode = "Shell"
-{Wait = 4
+{Wait = 10
 Mode = "Stand2"}
 
 if instance_exists(Obj_Kid) &amp;&amp; Wait &lt;= 0 &amp;&amp; Mode = "Stand2"
@@ -134,7 +136,7 @@ if instance_exists(Obj_Kid) &amp;&amp; Wait &lt;= 0 &amp;&amp; Mode = "Stand2"
 Mode = "JumpS2"}
 
 if Mode = "Jump2" &amp;&amp; OnFloor = 1 &amp;&amp; Wait &lt;= 0
-{Wait = 15
+{Wait = 30
 Mode = "Stand"}
 </string>
           </argument>

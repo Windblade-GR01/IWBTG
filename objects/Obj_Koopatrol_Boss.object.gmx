@@ -38,6 +38,7 @@ PosY = y
 OnFloor = 1
 LaceWait = round(random_range(0,120))
 image_speed = Frame_Speed(7.5)
+Damage = 1
 </string>
           </argument>
         </arguments>
