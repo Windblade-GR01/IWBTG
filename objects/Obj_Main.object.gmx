@@ -91,8 +91,8 @@ Reload = 0
           <argument>
             <kind>1</kind>
             <string>//Disable the Application Surface
-application_surface_draw_enable(false);
-surface_resize(application_surface,view_wview,view_hview)
+//application_surface_draw_enable(false);
+//surface_resize(application_surface,view_wview,view_hview)
 room_goto_next()
 </string>
           </argument>
@@ -122,6 +122,11 @@ if global.firstBoot == 1{
     global.Light = 1
 }
 */
+
+global.WindowScaleX = 1
+global.WindowScaleY = 1
+global.WindowSizeX = 800
+global.WindowSizeY = 600
 </string>
           </argument>
         </arguments>
@@ -145,8 +150,8 @@ if global.firstBoot == 1{
           <argument>
             <kind>1</kind>
             <string>FMODUpdate()
-global.GuiX = (window_get_width()/2)-((view_wview)/2)
-global.GuiY = (window_get_height()/2)-((view_hview)/2)
+//global.GuiX = (window_get_width()/2)-((view_wview)/2)
+//global.GuiY = (window_get_height()/2)-((view_hview)/2)
 </string>
           </argument>
         </arguments>
@@ -180,8 +185,12 @@ cover all shadow casters with darkness.
 */
 ls_system_properties(global.Night,ls_dm_vivid,make_color_rgb(25,25,25),true);
 
-global.GuiX = (window_get_width()/2)-((view_wview)/2)
-global.GuiY = (window_get_height()/2)-((view_hview)/2)
+global.WindowSizeX = (window_get_height()/3)*4
+global.WindowSizeY = window_get_height()
+global.WindowScaleX = global.WindowSizeX/view_wview
+global.WindowScaleY = global.WindowSizeY/view_hview
+global.GuiX = 0//((window_get_width() / 2) - (global.WindowSizeX / 2)) / 2
+global.GuiY = 0//((window_get_height() / 2) - (global.WindowSizeY / 2)) / 2
 </string>
           </argument>
         </arguments>
@@ -319,7 +328,7 @@ FMODfree()}
           <argument>
             <kind>1</kind>
             <string>///This is the important part here. This uses the new application_surface!
-draw_surface_ext(application_surface,(window_get_width()/2)-((view_wview)/2),(window_get_height()/2)-((view_hview)/2),1,1,0,c_white,1)
+//draw_surface_ext(application_surface, global.GuiX, global.GuiY, global.WindowScaleX, global.WindowScaleY, 0, c_white, 1)
 </string>
           </argument>
         </arguments>
@@ -342,7 +351,7 @@ draw_surface_ext(application_surface,(window_get_width()/2)-((view_wview)/2),(wi
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(Spr_Border,0,global.GuiX,global.GuiY)
+            <string>//draw_sprite_ext(Spr_Border,0,global.GuiX, global.GuiY, global.WindowScaleX, global.WindowScaleY, 0, c_white, 1)
 </string>
           </argument>
         </arguments>

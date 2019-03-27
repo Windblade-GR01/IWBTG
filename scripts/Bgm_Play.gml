@@ -6,13 +6,13 @@ if argument0 != -1  {
     //  }
     if argument0 != global.Played_BGM {
         FMODAllStop()
-        //FMODSoundLoop(argument0,false)}
+        FMODSoundLoop(argument0,false)
         global.Played_BGM = argument0
     }
 }
 else {
     if global.Played_BGM != -1{
-    //FMODSoundFree(global.Played_BGM)
+    FMODSoundFree(global.Played_BGM)
     FMODAllStop()
     global.Played_BGM = -1}
 }

@@ -264,7 +264,7 @@ image_speed = Frame_Speed(30)
                 GunWait = 0
                 }
         
-            if VarPlayer.Gun = "Bazooka" &amp;&amp; instance_number(Obj_Bullet_Rocket) &lt; 4 &amp;&amp; BazookaWait &lt;= 0 {
+            if VarPlayer.Gun = "Bazooka" &amp;&amp; instance_number(Obj_Bullet_Rocket) &lt; 2 &amp;&amp; BazookaWait &lt;= 0 {
                 if VarPlayer.Facing = 1 {
                     instance_create(x+10,y,Obj_Bullet_Rocket)
                 }

@@ -59,6 +59,7 @@ Fall = 0
 Up = 0
 ShadowOn = 0
 Speed = 2
+temp1 = 0
 </string>
           </argument>
         </arguments>
@@ -104,7 +105,10 @@ Speed = 2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if place_meeting(x,y-2,Obj_Kid) &amp;&amp; !place_meeting(x,PosY+VSpeed*2,Obj_Block)
+            <string>if !temp1 {
+    temp1 = place_meeting(x,PosY+VSpeed,Obj_Block) || place_meeting(x,PosY+VSpeed,Obj_MovingStop)
+}
+if place_meeting(x,y-2,Obj_Kid) &amp;&amp; !temp1
 {Obj_Kid.PosY = PosY-8.75}
 
 if Fall = 0 &amp;&amp; place_meeting(x,y-1,Obj_Kid)
@@ -114,9 +118,18 @@ if Fall = 1
 {VSpeed = -Speed}
 
 //Vertical Collision
-if (place_meeting(x,PosY+VSpeed,Obj_Block))
+if place_meeting(x,PosY+VSpeed,Obj_Block)
 {
     while(!place_meeting(x,PosY+VSpeed,Obj_Block))
+    {
+        PosY += sign(VSpeed);
+    }
+    VSpeed = 0;
+}
+
+if place_meeting(x,PosY+VSpeed,Obj_MovingStop)
+{
+    while(!place_meeting(x,PosY+VSpeed,Obj_MovingStop))
     {
         PosY += sign(VSpeed);
     }

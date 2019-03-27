@@ -13,7 +13,7 @@ global.RoomUp = Level_1b1
 global.RoomDown = -1
 global.RoomLeft = Level_1a1
 global.RoomRight = Level_1a3
-global.Night = 0
+global.Night = 1
 Bgm_Play(global.VBgm_Tomahawkman)
 }
 if room = Level_1a3

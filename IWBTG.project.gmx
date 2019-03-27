@@ -130,12 +130,12 @@
     <extension index="0">extensions\Easy Lighting Studio</extension>
   </NewExtensions>
   <sounds name="sound">
+    <sound>sound\Snd_Enemy_Shoot</sound>
     <sound>sound\Snd_Jump</sound>
     <sound>sound\Snd_DJump</sound>
     <sound>sound\Snd_Shoot</sound>
     <sound>sound\Snd_Hit</sound>
     <sound>sound\Snd_Explosion</sound>
-    <sound>sound\Snd_Enemy_Shoot</sound>
     <sound>sound\Snd_Death</sound>
     <sound>sound\Snd_MJump</sound>
     <sound>sound\Snd_Hammer</sound>
@@ -302,6 +302,7 @@
     <background>background\Bg_Elevator</background>
     <background>background\Bg_Train</background>
     <background>background\Bg_Tree</background>
+    <background>background\Bg_Stars</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -590,6 +591,7 @@
       <object>objects\Obj_Start</object>
       <object>objects\Obj_Main</object>
       <object>objects\Obj_Transition</object>
+      <object>objects\Obj_MovingStop</object>
     </objects>
   </objects>
   <rooms name="rooms">

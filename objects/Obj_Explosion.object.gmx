@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-2</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -29,6 +29,7 @@
 audio_play_sound_on(global.SFX,Snd_Explosion,false,1)
 Light1 = ls_light_create(x,y,75,360,0,c_yellow,16,true,false,1)
 alarm[0] = 6
+Damage = 1
 </string>
           </argument>
         </arguments>

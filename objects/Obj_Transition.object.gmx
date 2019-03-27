@@ -258,8 +258,8 @@ if transition == TRANS_CROSS_FADE {
   room_goto(nextRoom);
  }
  
- //draw_surface_stretched_ext(surface,0,0,__guiW,__guiH,c_white,1-count/steps);
- draw_surface_ext(surface,global.GuiX,global.GuiY,1,1,0,c_white,1-count/steps);
+ draw_surface_stretched_ext(surface,0,0,__guiW,__guiH,c_white,1-count/steps);
+ //draw_surface_ext(surface,global.GuiX,global.GuiY,1,1,0,c_white,1-count/steps);
 }
 //Slide left
 if transition == TRANS_SLIDE_LEFT {
@@ -267,8 +267,8 @@ if transition == TRANS_SLIDE_LEFT {
   room_goto(nextRoom);
  }
  
- //draw_surface_stretched_ext(surface,-count/steps*__guiW,0,__guiW,__guiH,c_white,1);
- draw_surface_ext(surface,-count/steps*view_wview,global.GuiY,1,1,0,c_white,1);
+ draw_surface_stretched_ext(surface,-count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ //draw_surface_ext(surface,-count/steps*view_wview,global.GuiY,1,1,0,c_white,1);
 }
 //Slide right
 if transition == TRANS_SLIDE_RIGHT {
@@ -276,8 +276,8 @@ if transition == TRANS_SLIDE_RIGHT {
   room_goto(nextRoom);
  }
  
- //draw_surface_stretched_ext(surface,count/steps*__guiW,0,__guiW,__guiH,c_white,1);
- draw_surface_ext(surface,count/steps*view_wview,global.GuiY,1,1,0,c_white,1);
+ draw_surface_stretched_ext(surface,count/steps*__guiW,0,__guiW,__guiH,c_white,1);
+ //draw_surface_ext(surface,count/steps*view_wview,global.GuiY,1,1,0,c_white,1);
 }
 //Slide up
 if transition == TRANS_SLIDE_UP {
@@ -285,8 +285,8 @@ if transition == TRANS_SLIDE_UP {
   room_goto(nextRoom);
  }
  
- //draw_surface_stretched_ext(surface,0,-count/steps*__guiH,__guiW,__guiH,c_white,1);
- draw_surface_ext(surface,global.GuiX,-count/steps*view_hview,1,1,0,c_white,1);
+ draw_surface_stretched_ext(surface,0,-count/steps*__guiH,__guiW,__guiH,c_white,1);
+ //draw_surface_ext(surface,global.GuiX,-count/steps*view_hview,1,1,0,c_white,1);
 }
 //Slide down
 if transition == TRANS_SLIDE_DOWN {
